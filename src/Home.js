@@ -1,51 +1,48 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-const URL = process.env.REACT_APP_API_BASE_URL;
-
+const URL = "AIzaSyDG9ehFjejGANZ0RdIQGrj7BNzJ7IN0t9E";
+// process.env.REACT_APP_API_BASE_URL;
 export default function Home() {
   const [data, setData] = useState([]);
   const [searchInput, setSearchInput] = useState("");
   // const keyPath =
 
- useEffect(() => {
-    fetch(
-      `https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=100&q=${searchInput}&key=${URL}`
-    )
-    .then((response) => response.json())
-      .then((data) => {
-        console.log(data,'data')
-        if (data) {
-          setData(data.items)
-        }
-        // setData(data.items)
-      })
-      .catch((error) => console.error(error));
-  }, [data]);
-
-  console.log(data);
-
   function handleChange(e) {
-    e.preventDefault();
+   
     setSearchInput(e.target.value);
   }
 
-  function submitHandler() {
+  function submitHandler(e) {
+    e.preventDefault();
     if (searchInput.length > 0) {
-      return (
-        <div>
-          {data.map((d) => {
-            return d.snippet.channelTitle.match(searchInput);
-          })}
-        </div>
-      );
+      const result = JSON.parse(window.localStorage.getItem(searchInput));
+      if (!result) {
+        fetch(
+          `https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=5&q=${searchInput}&key=${URL}`
+        )
+          .then((response) => response.json())
+          .then((data) => {
+            console.log(data, "data");
+            if (!data.error) {
+              setSearchInput("");
+              window.localStorage.setItem(
+                searchInput,
+                JSON.stringify(data.items)
+              );
+              setData(data.items);
+            }
+            // setData(data.items)
+          })
+          .catch((error) => console.error(error));
+      } else {
+        setData(result)
+      }
     }
-    // console.log(data)
   }
-
+  console.log(data);
   return (
     <div>
-      <Link> </Link>
-      <form onClick={submitHandler}>
+      <form onSubmit={submitHandler}>
         <input
           type="text"
           placeholder="Search here"
@@ -58,11 +55,11 @@ export default function Home() {
         {data.map((v, index) => {
           return (
             <li key={v.snippet.channelId}>
-              {v.snippet.channelTitle}
+              {v.snippet.title}
               <br />
-              <Link to={`/videos/${v.id}`} key={index}>
-                {" "}
-                {v.snippet.thumbnails.default.url}{" "}
+              <Link to={`/videos/${v.id.videoId}`} key={index} >
+               
+              <img src={v.snippet.thumbnails.default.url}/>
               </Link>
               <br />
               {v.snippet.description}

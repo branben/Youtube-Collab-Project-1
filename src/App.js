@@ -1,26 +1,22 @@
-import './App.css';
-import Home from './Home';
-import Video from './Video';
-import About from './About';
+import "./App.css";
+import Home from "./Home";
+import Videos from "./Videos";
+import About from "./About";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Nav from "./Nav";
 
 function App() {
-
-  
   return (
     <div className="App">
       <Router>
-        <nav>
-          <header>Kendon's YouTube</header>
-          <Routes>
+        <header>Kendon's YouTube</header>
+        <Nav />
+        <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
-          <Route path='/video/:id' element={<Video/>}
-          />
-          </Routes>
-        </nav>
+          <Route path="/videos/:id" element={<Videos />} />
+        </Routes>
       </Router>
-     
     </div>
   );
 }
