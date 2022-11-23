@@ -1,14 +1,14 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import Dropdown from "./Dropdown";
+import "./Home.css";
 const URL = "AIzaSyDG9ehFjejGANZ0RdIQGrj7BNzJ7IN0t9E";
 // process.env.REACT_APP_API_BASE_URL;
 export default function Home() {
   const [data, setData] = useState([]);
   const [searchInput, setSearchInput] = useState("");
-  // const keyPath =
 
   function handleChange(e) {
-   
     setSearchInput(e.target.value);
   }
 
@@ -35,31 +35,36 @@ export default function Home() {
           })
           .catch((error) => console.error(error));
       } else {
-        setData(result)
+        setData(result);
       }
     }
   }
   console.log(data);
+
   return (
     <div>
       <form onSubmit={submitHandler}>
-        <input
-          type="text"
-          placeholder="Search here"
-          onChange={handleChange}
-          value={searchInput}
-        />
-        <input type="submit" value="submit" />
+        <div className="searchbar">
+          <input
+            type="text"
+            placeholder="Search here"
+            onChange={handleChange}
+            value={searchInput}
+          />
+          <input type="submit" value="🔍" />
+        </div>
       </form>
+
       <ul>
         {data.map((v, index) => {
           return (
             <li key={v.snippet.channelId}>
+              
+              <br/>
               {v.snippet.title}
               <br />
-              <Link to={`/videos/${v.id.videoId}`} key={index} >
-               
-              <img src={v.snippet.thumbnails.default.url}/>
+              <Link to={`/videos/${v.id.videoId}`} key={index}>
+                <img src={v.snippet.thumbnails.default.url} />
               </Link>
               <br />
               {v.snippet.description}
