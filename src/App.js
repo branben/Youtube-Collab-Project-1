@@ -14,7 +14,6 @@ function App() {
       <Router>
         <header>Kendon's YouTube</header>
         <Nav />
-        
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />

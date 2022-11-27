@@ -54,13 +54,15 @@ export default function Home() {
           <input type="submit" value="🔍" />
         </div>
       </form>
-
+      <Dropdown/>
       <ul>
         {data.map((v, index) => {
+           
           return (
+            <div>
+
             <li key={v.snippet.channelId}>
-              
-              <br/>
+             
               {v.snippet.title}
               <br />
               <Link to={`/videos/${v.id.videoId}`} key={index}>
@@ -69,8 +71,10 @@ export default function Home() {
               <br />
               {v.snippet.description}
             </li>
-          );
-        })}
+         
+            </div>
+            );
+          })}
       </ul>
     </div>
   );
