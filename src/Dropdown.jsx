@@ -10,13 +10,17 @@ const Dropdown = () => {
     const onClick = () => setIsActive(!isActive);
     const [button, setButton] = useState()
 
+    let dates = [
+        ...new Map(data.map((d) => [d.snippet.thumbnail.title, d])).keys(),
+      ]
+        .sort((a, b) => b.slice(-4) - a.slice(-4))
 
     function buttonHandler(e){
         setButton(e.target.value)
 
-        if(e.target.value === "date"){
+        if(e.target.value === "title"){
             return(
-                <div></div>
+                
             )
         }
 
