@@ -30,6 +30,7 @@ export default function Home() {
                 JSON.stringify(data.items)
               );
               setData(data.items);
+              // setButton(button);
             }
             // setData(data.items)
           })
@@ -52,29 +53,26 @@ export default function Home() {
             value={searchInput}
           />
           <input type="submit" value="🔍" />
+          {/* <Dropdown onChange={buttonHandler} /> */}
         </div>
       </form>
-      <Dropdown/>
+
       <ul>
         {data.map((v, index) => {
-           
           return (
             <div>
-
-            <li key={v.snippet.channelId}>
-             
-              {v.snippet.title}
-              <br />
-              <Link to={`/videos/${v.id.videoId}`} key={index}>
-                <img src={v.snippet.thumbnails.default.url} />
-              </Link>
-              <br />
-              {v.snippet.description}
-            </li>
-         
+              <li key={v.snippet.channelId}>
+                {v.snippet.title}
+                <br />
+                <Link to={`/videos/${v.id.videoId}`} key={index}>
+                  <img src={v.snippet.thumbnails.default.url} />
+                </Link>
+                <br />
+                {v.snippet.description}
+              </li>
             </div>
-            );
-          })}
+          );
+        })}
       </ul>
     </div>
   );

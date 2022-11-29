@@ -1,3 +1,21 @@
+*{
+    margin: 0;
+    padding:0;
+    font-family: "poppins" , "sans-serif";
+    box-sizing: border-box;
+}
+
+Link{
+    text-decoration: none;
+    color: #5a5a5a;
+}
+
+img{
+    cursor: pointer;
+}
+
+
+
 .searchbar{
     margin: 10px 10px 10px 10px;
     padding: 5px 5px 5px 5px;
@@ -8,3 +26,17 @@
 nav{
     display: grid;
 }
+
+header{
+    display: flex;
+    justify-content: center;
+    background-color: crimson;
+    text-align: justify;
+}
+
+#tube-icon{
+    display: grid;
+    text-align: left;
+}
+
+
