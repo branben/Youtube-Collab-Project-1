@@ -8,29 +8,79 @@
 Link{
     text-decoration: none;
     color: #5a5a5a;
+
 }
 
-img{
+#magGlass{
+    
+    right: 0;
+    height: 19px;
+    
+}
+
+.vid-imgs{
     cursor: pointer;
+    border-radius: 10px;
+    /* border: 5px solid black; */
+    box-shadow: 5px 5px #ff0000;
 }
 
+.video-list{
+display: grid;
+grid-template-columns: repeat(2, 1fr);
+grid-gap: 10px;
+background-color: black;
+}
+
+.individual{
+    border: 10px solid black;
+    color: whitesmoke;
+}
 
 
 .searchbar{
-    margin: 10px 10px 10px 10px;
-    padding: 5px 5px 5px 5px;
-    background-color: black;
-
-}
-
-nav{
-    display: grid;
-}
-
-header{
+    /* margin: 10px 10px 10px 10px;
+     */
     display: flex;
     justify-content: center;
-    background-color: crimson;
+    align-items: center;
+    padding: 10px;
+    background-color: black;
+    position: relative;
+    
+
+}
+
+
+
+#head-title{
+    grid-column:2 / 6 ;
+    font-size: x-large;
+    text-align: center;
+color: black;
+}
+
+#Home{
+    grid-column: 4 / 5;
+    text-decoration: none;
+    font-weight: bolder;
+    color: black;
+}
+
+#About{
+    grid-column: 5 / 6 ;
+    text-decoration: none;
+    font-weight: bolder;
+    color: black;
+}
+
+
+.header-head{
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(2, 0.5fr);
+    justify-content: center;
+    background-color: #ff0000;
     text-align: justify;
 }
 

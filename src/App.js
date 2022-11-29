@@ -12,7 +12,7 @@ function App() {
   return (
     <div className="App">
       <Router>
-        <header><img src="https://www.pngfind.com/pngs/m/0-986_free-icons-png-youtube-logo-3d-transparent-png.png" style={{height:"60px"}} id="tube-icon"></img><h1>Kendon's YouTube</h1></header>
+        
         <Nav />
         {/* <Extra /> */}
         <Routes>

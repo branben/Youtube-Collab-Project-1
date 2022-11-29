@@ -52,28 +52,33 @@ export default function Home() {
             onChange={handleChange}
             value={searchInput}
           />
-          <input type="submit" value="🔍" />
+          <input id="magGlass" type="submit" value="🔍" />
           {/* <Dropdown onChange={buttonHandler} /> */}
         </div>
       </form>
 
-      <ul>
+      <ul className="video-list">
         {data.map((v, index) => {
           return (
-            <div>
+            <div className="individual">
               <li key={v.snippet.channelId}>
                 {v.snippet.title}
                 <br />
+
                 <Link to={`/videos/${v.id.videoId}`} key={index}>
-                  <img src={v.snippet.thumbnails.default.url} />
+                  <img
+                    className="vid-imgs"
+                    src={v.snippet.thumbnails.medium.url}
+                  />
                 </Link>
                 <br />
-                {v.snippet.description}
+                <strong>{v.snippet.description}</strong>
               </li>
             </div>
           );
         })}
       </ul>
+      
     </div>
   );
 }
