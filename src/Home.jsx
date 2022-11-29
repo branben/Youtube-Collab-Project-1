@@ -30,6 +30,7 @@ export default function Home() {
                 JSON.stringify(data.items)
               );
               setData(data.items);
+              // setButton(button);
             }
             // setData(data.items)
           })
@@ -51,31 +52,33 @@ export default function Home() {
             onChange={handleChange}
             value={searchInput}
           />
-          <input type="submit" value="🔍" />
+          <input id="magGlass" type="submit" value="🔍" />
+          {/* <Dropdown onChange={buttonHandler} /> */}
         </div>
       </form>
-      <Dropdown/>
-      <ul>
-        {data.map((v, index) => {
-           
-          return (
-            <div>
 
-            <li key={v.snippet.channelId}>
-             
-              {v.snippet.title}
-              <br />
-              <Link to={`/videos/${v.id.videoId}`} key={index}>
-                <img src={v.snippet.thumbnails.default.url} />
-              </Link>
-              <br />
-              {v.snippet.description}
-            </li>
-         
+      <ul className="video-list">
+        {data.map((v, index) => {
+          return (
+            <div className="individual">
+              <li key={v.snippet.channelId}>
+                {v.snippet.title}
+                <br />
+
+                <Link to={`/videos/${v.id.videoId}`} key={index}>
+                  <img
+                    className="vid-imgs"
+                    src={v.snippet.thumbnails.medium.url}
+                  />
+                </Link>
+                <br />
+                <strong>{v.snippet.description}</strong>
+              </li>
             </div>
-            );
-          })}
+          );
+        })}
       </ul>
+      
     </div>
   );
 }

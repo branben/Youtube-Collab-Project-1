@@ -4,7 +4,7 @@ import Videos from "./Videos";
 import About from "./About";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Nav from "./Nav";
-// import extra from "./extra";
+import Extra from "./Extra";
 import Dropdown from "./Dropdown";
 
 function App() {
@@ -12,8 +12,9 @@ function App() {
   return (
     <div className="App">
       <Router>
-        <header>Kendon's YouTube</header>
+        
         <Nav />
+        {/* <Extra /> */}
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
