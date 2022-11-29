@@ -4,9 +4,6 @@ import Videos from "./Videos";
 import About from "./About";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Nav from "./Nav";
-import Extra from "./Extra";
-import Dropdown from "./Dropdown";
-
 function App() {
  
   return (

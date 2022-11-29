@@ -1,6 +1,5 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
-import Dropdown from "./Dropdown";
 import "./Home.css";
 const URL = "AIzaSyDG9ehFjejGANZ0RdIQGrj7BNzJ7IN0t9E";
 // process.env.REACT_APP_API_BASE_URL;
@@ -68,7 +67,7 @@ export default function Home() {
                 <Link to={`/videos/${v.id.videoId}`} key={index}>
                   <img
                     className="vid-imgs"
-                    src={v.snippet.thumbnails.medium.url}
+                    src={v.snippet.thumbnails.medium.url} alt=''
                   />
                 </Link>
                 <br />
