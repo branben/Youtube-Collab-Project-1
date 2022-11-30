@@ -26,8 +26,6 @@ Link{
 }
 
 .video-list{
-display: grid;
-grid-template-columns: repeat(2, 1fr);
 grid-gap: 10px;
 background-color: black;
 }
@@ -90,3 +88,44 @@ color: black;
 }
 
 
+* {
+    /*   font-size: 1.5rem; */
+    font-family: "Roboto", sans-serif;
+  }
+  
+  .reccomendation {
+    display: flex;
+    cursor: pointer;
+  }
+  
+  .view-info {
+    display: flex;
+    justify-content: flex-start;
+  }
+  
+  .preview {
+    position: relative;
+    margin-right: 0.5rem;
+  }
+  
+  .timestamp {
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+    background: black;
+    color: white;
+    padding: 0.15rem;
+    border-radius: 0.25rem;
+  }
+  
+  .title {
+    font-weight: bold;
+  }
+  
+  .username {
+    font-size: 1.1rem;
+  }
+  
+  .info {
+    align-items: center;
+  }
