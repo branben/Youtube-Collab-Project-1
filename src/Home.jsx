@@ -1,17 +1,12 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import "./Home.css";
-import Modal from "react-responsive-modal";
 
 const URL = "AIzaSyDG9ehFjejGANZ0RdIQGrj7BNzJ7IN0t9E";
 // process.env.REACT_APP_API_BASE_URL;
 export default function Home() {
   const [data, setData] = useState([]);
   const [searchInput, setSearchInput] = useState("");
-  const [open, setOpen] = useState(false);
-
-  const onOpenModal = () => setOpen(true);
-  const onCloseModal = () => setOpen(false);
 
   function handleChange(e) {
     setSearchInput(e.target.value);
@@ -39,7 +34,7 @@ export default function Home() {
             }
             // setData(data.items)
           })
-          .catch((error) => setOpen(true));
+          .catch((error) => console.error(error));
       } else {
         setData(result);
       }
@@ -50,9 +45,6 @@ export default function Home() {
   return (
     <>
       <div className="container">
-        <Modal open={open} onClose={onCloseModal} center>
-          <h2>This video is broken my guy</h2>
-        </Modal>
         <div className="videos">
           <form onSubmit={submitHandler}>
             <div className="searchbar">
@@ -85,17 +77,16 @@ export default function Home() {
                         </Link>
                       </div>
                       <div className="info">
-                      <Link to={`/videos/${v.id.videoId}`} key={index}>
-                        <div className="title">
-                          
-                          {v.snippet.title}
-                          <br />
-                          Alot of Views
-                          <br />
-                          *
-                          <br />
-                          Some years ago
-                        </div>
+                        <Link to={`/videos/${v.id.videoId}`} key={index}>
+                          <div className="title">
+                            {v.snippet.title}
+                            <br />
+                            Alot of Views
+                            <br />
+                            *
+                            <br />
+                            Some years ago
+                          </div>
                         </Link>
                         <div className="username">{v.snippet.channelTitle}</div>
                         <div className="view-info">
